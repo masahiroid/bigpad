@@ -34,14 +34,8 @@ Coordinates=459,1,136,36
 [N4]
 Coordinates=0,115,40,36
 
-[X1]
-Coordinates=318,56,40,36
-
 [A2]
 Coordinates=318,111,40,36
-
-[L1]
-Coordinates=318,166,40,36
 
 [S1]
 Coordinates=318,221,40,36
@@ -57,9 +51,6 @@ Coordinates=101,225,78,36
 
 [F1]
 Coordinates=52,225,40,36
-
-[W1]
-Coordinates=0,189,40,36
 
 [FileRun1]
 Coordinates=459,56,66,36
@@ -91,17 +82,11 @@ Coordinates=192,299,58,36
 [FileOpen1]
 Coordinates=113,299,74,36
 
-[C3]
-Coordinates=64,299,40,36
-
 [N3]
 Coordinates=15,299,40,36
 
 [EditSelectAll1]
 Coordinates=633,111,94,36
-
-[H1]
-Coordinates=633,166,40,36
 
 [HelpContents1]
 Coordinates=633,221,100,36
@@ -117,9 +102,6 @@ Coordinates=614,373,40,36
 
 [T1]
 Coordinates=565,373,40,36
-
-[ToolBox_OnOFF]
-Coordinates=446,373,111,36
 
 [EditPaste1]
 Coordinates=367,373,77,36
@@ -154,9 +136,6 @@ Coordinates=816,166,74,36
 [U1]
 Coordinates=816,221,40,36
 
-[C2]
-Coordinates=816,276,40,36
-
 [WindowClose1]
 Coordinates=816,331,100,36
 
@@ -173,6 +152,6 @@ Coordinates=747,447,66,36
 Coordinates=658,447,80,36
 
 []
-Coordinates=222,78,70,36
+Coordinates=0,189,40,36
 Visible=True
 

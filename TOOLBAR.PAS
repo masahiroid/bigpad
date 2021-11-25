@@ -9,7 +9,6 @@ uses
 type
   TToolbarForm = class(TForm)
     CopyButton: TSpeedButton;
-    ExitBtn: TSpeedButton;
     PageControl1: TPageControl;
     TabSheet2: TTabSheet;
     TabSheet1: TTabSheet;
@@ -20,7 +19,9 @@ type
     SaveBtn: TSpeedButton;
     OpenBtn: TSpeedButton;
     CutButton: TSpeedButton;
-    SpeedButton3: TSpeedButton;
+    SpeedButton5: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton4: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure CutButtonClick(Sender: TObject);
     procedure CopyButtonClick(Sender: TObject);
@@ -30,9 +31,12 @@ type
     procedure SaveBtnClick(Sender: TObject);
     procedure PrintBtnClick(Sender: TObject);
     procedure PrintSetupBtnClick(Sender: TObject);
-    procedure ExitBtnClick(Sender: TObject);
     procedure FormHide(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure SpeedButton5Click(Sender: TObject);
   private
     { Private êÈåæ }
   public
@@ -44,7 +48,7 @@ var
 
 implementation
 
-uses Unit1;
+uses Unit1,Unit2;
 
 {$R *.DFM}
 
@@ -95,6 +99,54 @@ begin
   BigPad.A1_SaveClick(Sender);
 end;
 
+procedure TToolbarForm.SpeedButton1Click(Sender: TObject);
+begin
+  var PText : string;
+begin
+  PText := '<p></p>';
+
+  //BigPad.Memo1.Lines.Append();
+  //BigPad.Memo1.Lines.Add(HText);
+  BigPad.Memo1.Lines.Append(PText);
+end;
+end;
+
+procedure TToolbarForm.SpeedButton2Click(Sender: TObject);
+begin
+  var HText : string;
+begin
+  HText := '<h></h>';
+
+  //BigPad.Memo1.Lines.Append();
+  //BigPad.Memo1.Lines.Add(HText);
+  BigPad.Memo1.Lines.Append(HText);
+end;
+end;
+
+procedure TToolbarForm.SpeedButton4Click(Sender: TObject);
+begin
+  var DIVText : string;
+begin
+  DIVText := '<div></div>';
+
+  //BigPad.Memo1.Lines.Append();
+  //BigPad.Memo1.Lines.Add(HText);
+  BigPad.Memo1.Lines.Append(DIVText);
+end;
+end;
+
+procedure TToolbarForm.SpeedButton5Click(Sender: TObject);
+begin
+  var PText : string;
+begin
+  PText := '<p></p>';
+
+  //BigPad.Memo1.Lines.Append();
+  //BigPad.Memo1.Lines.Add(HText);
+  BigPad.Memo1.Lines.Append(PText);
+end;
+end;
+
 procedure TToolbarForm.PrintBtnClick(Sender: TObject);
 begin
   BigPad.Action11Click(Sender);
@@ -103,11 +155,6 @@ end;
 procedure TToolbarForm.PrintSetupBtnClick(Sender: TObject);
 begin
 //BigPad.PrintSetupItemClick(Sender)
-end;
-
-procedure TToolbarForm.ExitBtnClick(Sender: TObject);
-begin
-//BigPad.ExitItemClick(Sender)
 end;
 
 procedure TToolbarForm.FormHide(Sender: TObject);
