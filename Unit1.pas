@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, System.Actions, Vcl.ActnList,
   Vcl.StdActns, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.ExtActns, Vcl.BandActn,
-  Vcl.Buttons, Vcl.ExtCtrls;
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.ExtDlgs;
 
 type
   TBigPad = class(TForm)
@@ -25,7 +25,6 @@ type
     FileOpen3: TFileOpen;
     FilePrintSetup1: TFilePrintSetup;
     U1: TMenuItem;
-    RichEdit1: TRichEdit;
     E1: TMenuItem;
     EditCut1: TEditCut;
     T1: TMenuItem;
@@ -67,6 +66,9 @@ type
     SpeedButton4: TSpeedButton;
     HelpContents1: THelpContents;
     C3: TMenuItem;
+    SaveTextFileDialog1: TSaveTextFileDialog;
+    OpenTextFileDialog1: TOpenTextFileDialog;
+    Memo1: TMemo;
     procedure U1Click(Sender: TObject);
     procedure O1Click(Sender: TObject);
     procedure A1_SaveClick(Sender: TObject);
@@ -79,6 +81,8 @@ type
     procedure ToolBox_OnOFFClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
   private
     { Private 宣言 }
   public
@@ -87,6 +91,7 @@ type
 
 var
   BigPad: TBigPad;
+  MrFile: String;         //編集中のファイル名
 
 implementation
 
@@ -98,7 +103,7 @@ procedure TBigPad.A1_SaveClick(Sender: TObject);
 begin
   SaveDialog.FileName := OpenDialog.FileName;
   if SaveDialog.Execute then
-  RichEdit1.Lines.SaveToFile(SaveDialog.FileName);
+  Memo1.Lines.SaveToFile(SaveDialog.FileName);
 end;
 
 procedure TBigPad.Action11Click(Sender: TObject);
@@ -108,38 +113,55 @@ end;
 
 procedure TBigPad.C1Click(Sender: TObject);
 begin
-  RichEdit1.CopyToClipboard;
+  Memo1.CopyToClipboard;
 end;
 
 procedure TBigPad.N3Click(Sender: TObject);
 begin
-  RichEdit1.Clear;
+  Memo1.Clear;
 end;
 
 procedure TBigPad.O1Click(Sender: TObject);
 begin
   if OpenDialog.Execute then
-  RichEdit1.Lines.LoadFromFile(OpenDialog.FileName);
+  Memo1.Lines.LoadFromFile(OpenDialog.FileName);
 end;
 
 procedure TBigPad.P1Click(Sender: TObject);
 begin
-  RichEdit1.PasteFromClipboard;
+  Memo1.PasteFromClipboard;
 end;
 
 procedure TBigPad.SpeedButton1Click(Sender: TObject);
 begin
-  RichEdit1.Clear;
+  Memo1.Clear;
 end;
 
 procedure TBigPad.SpeedButton2Click(Sender: TObject);
 begin
-  BigPad.A1_SaveClick(Sender);
+  BigPad.O1Click(Sender);
+end;
+
+procedure TBigPad.SpeedButton3Click(Sender: TObject);
+begin
+  //SaveTextFileDialog1.FileName := OpenTextFileDialog1.FileName;
+  if SaveTextFileDialog1.Execute then
+  Memo1.Lines.SaveToFile(SaveTextFileDialog1.FileName);
+end;
+
+procedure TBigPad.SpeedButton4Click(Sender: TObject);
+begin
+     if SaveTextFileDialog1.Execute then
+     begin
+          MrFile := SaveTextFileDialog1.Filename;　　//ファイル名を取得
+          //Caption := MyCaption + MyFilename;　　//タイトルバーに表示
+          BigPad.A1_SaveClick(Sender)   // 手続き〔上書き保存(S)〕を呼び出し、そのファイル名で保存
+     end;
 end;
 
 procedure TBigPad.T1Click(Sender: TObject);
 begin
-  RichEdit1.CutToClipboard;
+  Memo1.CutToClipboard;
 end;
 
 procedure TBigPad.ToolBox_OnOFFClick(Sender: TObject);
@@ -155,7 +177,7 @@ end;
 
 procedure TBigPad.U2Click(Sender: TObject);
 begin
-  RichEdit1.Perform(Em_Undo, 0, 0);
+  Memo1.Perform(Em_Undo, 0, 0);
 end;
 
 end.

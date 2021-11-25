@@ -8,19 +8,19 @@ uses
 
 type
   TToolbarForm = class(TForm)
-    CutButton: TSpeedButton;
     CopyButton: TSpeedButton;
-    OpenBtn: TSpeedButton;
     ExitBtn: TSpeedButton;
     PageControl1: TPageControl;
     TabSheet2: TTabSheet;
     TabSheet1: TTabSheet;
     UndoButton: TSpeedButton;
-    SpeedButton3: TSpeedButton;
     PasteButton: TSpeedButton;
     PrintBtn: TSpeedButton;
     PrintSetupBtn: TSpeedButton;
     SaveBtn: TSpeedButton;
+    OpenBtn: TSpeedButton;
+    CutButton: TSpeedButton;
+    SpeedButton3: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure CutButtonClick(Sender: TObject);
     procedure CopyButtonClick(Sender: TObject);
@@ -63,25 +63,25 @@ end;
 
 procedure TToolbarForm.CutButtonClick(Sender: TObject);
 begin
-  BigPad.RichEdit1.CutToClipboard;
+  BigPad.Memo1.CutToClipboard;
   BigPad.SetFocus;
 end;
 
 procedure TToolbarForm.CopyButtonClick(Sender: TObject);
 begin
-  BigPad.RichEdit1.CopyToClipboard;
+  BigPad.Memo1.CopyToClipboard;
   BigPad.SetFocus;
 end;
 
 procedure TToolbarForm.PasteButtonClick(Sender: TObject);
 begin
-  BigPad.RichEdit1.PasteFromClipboard;
+  BigPad.Memo1.PasteFromClipboard;
   BigPad.SetFocus;
 end;
 
 procedure TToolbarForm.UndoButtonClick(Sender: TObject);
 begin
-  BigPad.RichEdit1.Perform(Em_Undo, 0, 0);
+  BigPad.Memo1.Perform(Em_Undo, 0, 0);
   BigPad.SetFocus;
 end;
 

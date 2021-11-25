@@ -149,28 +149,13 @@ object BigPad: TBigPad
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object RichEdit1: TRichEdit
-    Left = 0
-    Top = 32
-    Width = 624
-    Height = 389
-    Align = alClient
-    Font.Charset = SHIFTJIS_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = #65325#65331' '#65328#12468#12471#12483#12463
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 0
-    Zoom = 100
-  end
   object SpeedBar: TPanel
     Left = 0
     Top = 0
     Width = 624
     Height = 32
     Align = alTop
-    TabOrder = 1
+    TabOrder = 0
     object SpeedButton1: TSpeedButton
       Left = 4
       Top = 4
@@ -430,6 +415,7 @@ object BigPad: TBigPad
         7F007F7F007F7F007F7F007F7F007F7F007F7F007F7F007F7F007F7F007F7F00
         7F7F007F7F007F7F007F7F007F7F007F7F007F7F007F7F007F7F}
       NumGlyphs = 2
+      OnClick = SpeedButton3Click
     end
     object SpeedButton4: TSpeedButton
       Left = 80
@@ -516,7 +502,21 @@ object BigPad: TBigPad
         7F007F7F007F7F007F7F007F7F007F7F007F7F007F7F007F7F007F7F007F7F00
         7F7F007F7F007F7F007F7F007F7F007F7F007F7F007F7F007F7F}
       NumGlyphs = 2
+      OnClick = SpeedButton4Click
     end
+  end
+  object Memo1: TMemo
+    Left = 0
+    Top = 32
+    Width = 624
+    Height = 389
+    Align = alClient
+    Ctl3D = True
+    DoubleBuffered = False
+    ParentCtl3D = False
+    ParentDoubleBuffered = False
+    ScrollBars = ssBoth
+    TabOrder = 1
   end
   object MainMenu1: TMainMenu
     Left = 16
@@ -762,5 +762,16 @@ object BigPad: TBigPad
   object PrintDialog: TPrintDialog
     Left = 144
     Top = 64
+  end
+  object SaveTextFileDialog1: TSaveTextFileDialog
+    DefaultExt = 'txt'
+    Filter = #12486#12461#12473#12488#12501#12449#12452#12523'(*.txt)|*.txt|'#12377#12409#12390#12398#12501#12449#12452#12523'(*.*)|*.*'
+    EncodingIndex = 1
+    Left = 328
+    Top = 120
+  end
+  object OpenTextFileDialog1: TOpenTextFileDialog
+    Left = 80
+    Top = 120
   end
 end
