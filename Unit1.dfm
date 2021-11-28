@@ -153,12 +153,12 @@ object BigPad: TBigPad
     Left = 0
     Top = 0
     Width = 624
-    Height = 32
+    Height = 40
     Align = alTop
     TabOrder = 0
     object SpeedButton1: TSpeedButton
       Left = 4
-      Top = 2
+      Top = 8
       Width = 26
       Height = 26
       Hint = 'New|'
@@ -244,8 +244,8 @@ object BigPad: TBigPad
       OnClick = SpeedButton1Click
     end
     object SpeedButton2: TSpeedButton
-      Left = 30
-      Top = 2
+      Left = 36
+      Top = 8
       Width = 26
       Height = 26
       Hint = 'Open|'
@@ -331,8 +331,8 @@ object BigPad: TBigPad
       OnClick = SpeedButton2Click
     end
     object SpeedButton3: TSpeedButton
-      Left = 56
-      Top = 2
+      Left = 68
+      Top = 8
       Width = 26
       Height = 26
       Hint = 'Save|'
@@ -418,8 +418,8 @@ object BigPad: TBigPad
       OnClick = SpeedButton3Click
     end
     object SpeedButton4: TSpeedButton
-      Left = 82
-      Top = 2
+      Left = 100
+      Top = 8
       Width = 26
       Height = 26
       Hint = 'Print|'
@@ -505,8 +505,8 @@ object BigPad: TBigPad
       OnClick = SpeedButton4Click
     end
     object SpeedButton5: TSpeedButton
-      Left = 108
-      Top = 2
+      Left = 164
+      Top = 8
       Width = 26
       Height = 26
       Glyph.Data = {
@@ -536,10 +536,11 @@ object BigPad: TBigPad
         0000000000000000000000000000000000000000000000000000000000000000
         00000000FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
         00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
+      OnClick = SpeedButton5Click
     end
     object SpeedButton6: TSpeedButton
-      Left = 134
-      Top = 2
+      Left = 132
+      Top = 8
       Width = 26
       Height = 26
       Hint = #32066#20102'|'#12487#12514#12434#32066#20102
@@ -575,9 +576,9 @@ object BigPad: TBigPad
   end
   object Memo1: TMemo
     Left = 0
-    Top = 32
+    Top = 40
     Width = 624
-    Height = 389
+    Height = 381
     Align = alClient
     Ctl3D = True
     DoubleBuffered = False
@@ -607,6 +608,11 @@ object BigPad: TBigPad
       end
       object N4: TMenuItem
         Caption = '-'
+      end
+      object over_write: TMenuItem
+        Action = FileSaveAs2
+        Caption = #19978#26360#12365#20445#23384'(&O)...'
+        OnClick = over_writeClick
       end
       object A1_Save: TMenuItem
         Action = FileSaveAs1
@@ -827,6 +833,15 @@ object BigPad: TBigPad
     object Action4: TAction
       Caption = 'Action4'
     end
+    object Action5: TAction
+      Caption = 'Action5'
+    end
+    object FileSaveAs2: TFileSaveAs
+      Category = 'File'
+      Caption = #21517#21069#12434#20184#12369#12390#20445#23384'(&A)...'
+      Hint = #21517#21069#12434#20184#12369#12390#20445#23384'|'#12450#12463#12486#12451#12502' '#12501#12449#12452#12523#12434#26032#12375#12356#21517#21069#12391#20445#23384#12375#12414#12377
+      ImageIndex = 30
+    end
   end
   object PrinterSetupDialog: TPrinterSetupDialog
     Left = 240
@@ -855,6 +870,9 @@ object BigPad: TBigPad
     Top = 136
   end
   object OpenTextFileDialog1: TOpenTextFileDialog
+    Filter = 
+      #12486#12461#12473#12488#12501#12449#12452#12523'(*.txt)|*.txt|'#12510#12540#12463#12480#12454#12531'(*.md)|*.md|HTML(*.html)|*.html*|'#12472#12515#12496 +
+      #12473#12463#12522#12503#12488'(*.js)|*.js|'#20840#12390#12398#65420#65383#65394#65433'(*.*)|*.*'
     Left = 80
     Top = 136
   end

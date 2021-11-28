@@ -22,6 +22,8 @@ type
     SpeedButton5: TSpeedButton;
     SpeedButton2: TSpeedButton;
     SpeedButton4: TSpeedButton;
+    SpeedButton1: TSpeedButton;
+    SpeedButton3: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure CutButtonClick(Sender: TObject);
     procedure CopyButtonClick(Sender: TObject);
@@ -37,6 +39,7 @@ type
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
     procedure SpeedButton5Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
   private
     { Private êÈåæ }
   public
@@ -101,14 +104,11 @@ end;
 
 procedure TToolbarForm.SpeedButton1Click(Sender: TObject);
 begin
-  var PText : string;
-begin
-  PText := '<p></p>';
-
-  //BigPad.Memo1.Lines.Append();
-  //BigPad.Memo1.Lines.Add(HText);
-  BigPad.Memo1.Lines.Append(PText);
-end;
+  Form2.DBMemo2.SelectAll;
+  Form2.DBMemo2.CopyToClipboard;
+  //Edit1.Clear;
+  BigPad.Memo1.PasteFromClipboard;
+  BigPad.Memo1.SetFocus;
 end;
 
 procedure TToolbarForm.SpeedButton2Click(Sender: TObject);
@@ -123,28 +123,32 @@ begin
 end;
 end;
 
+procedure TToolbarForm.SpeedButton3Click(Sender: TObject);
+begin
+  Form2.DBMemo3.SelectAll;
+  Form2.DBMemo3.CopyToClipboard;
+  //Edit1.Clear;
+  BigPad.Memo1.PasteFromClipboard;
+  BigPad.Memo1.SetFocus;
+
+end;
+
 procedure TToolbarForm.SpeedButton4Click(Sender: TObject);
 begin
-  var DIVText : string;
-begin
-  DIVText := '<div></div>';
-
-  //BigPad.Memo1.Lines.Append();
-  //BigPad.Memo1.Lines.Add(HText);
-  BigPad.Memo1.Lines.Append(DIVText);
-end;
+  Form2.DBMemo4.SelectAll;
+  Form2.DBMemo4.CopyToClipboard;
+  //Edit1.Clear;
+  BigPad.Memo1.PasteFromClipboard;
+  BigPad.Memo1.SetFocus;
 end;
 
 procedure TToolbarForm.SpeedButton5Click(Sender: TObject);
 begin
-  var PText : string;
-begin
-  PText := '<p></p>';
-
-  //BigPad.Memo1.Lines.Append();
-  //BigPad.Memo1.Lines.Add(HText);
-  BigPad.Memo1.Lines.Append(PText);
-end;
+  Form2.DBMemo1.SelectAll;
+  Form2.DBMemo1.CopyToClipboard;
+  //Edit1.Clear;
+  BigPad.Memo1.PasteFromClipboard;
+  BigPad.Memo1.SetFocus;
 end;
 
 procedure TToolbarForm.PrintBtnClick(Sender: TObject);

@@ -77,6 +77,8 @@ type
     SpeedButton5: TSpeedButton;
     SpeedButton6: TSpeedButton;
     Action5: TAction;
+    FileSaveAs2: TFileSaveAs;
+    over_write: TMenuItem;
     procedure U1Click(Sender: TObject);
     procedure O1Click(Sender: TObject);
     procedure A1_SaveClick(Sender: TObject);
@@ -97,6 +99,9 @@ type
     procedure __font_settingClick(Sender: TObject);
     procedure _benri_boxClick(Sender: TObject);
     procedure SpeedButton6Click(Sender: TObject);
+    procedure SpeedButton5Click(Sender: TObject);
+    procedure overwriteClick(Sender: TObject);
+    procedure over_writeClick(Sender: TObject);
   private
     { Private 宣言 }
   public
@@ -113,6 +118,15 @@ implementation
 uses Unit2,TOOLBAR;
 
 {$R *.dfm}
+
+procedure TBigPad.over_writeClick(Sender: TObject);
+begin
+  if MessageDlg('上書き保存されます・・・',mtConfirmation,mbYesNoCancel,MB_YESNOCANCEL)=mrYes then
+  begin
+    Memo1.Lines.SaveToFile(OpenDialog.FileName);
+    BigPad.Caption:=OpenDialog.FileName;
+end;
+end;
 
 procedure TBigPad.A1_SaveClick(Sender: TObject);
 begin
@@ -165,6 +179,15 @@ begin
   //Application.Terminate;
 end;
 
+procedure TBigPad.overwriteClick(Sender: TObject);
+begin
+  if MessageDlg('ｱ｣ｴ貭ｿ',mtConfirmation,mbYesNoCancel,MB_YESNOCANCEL)=mrYes then
+  begin
+    Memo1.Lines.SaveToFile(OpenDialog.FileName);
+    BigPad.Caption:=OpenDialog.FileName;
+end;
+end;
+
 procedure TBigPad.O1Click(Sender: TObject);
 begin
   if OpenDialog.Execute then
@@ -201,6 +224,15 @@ begin
       //Caption := MyCaption + MyFilename;　　//タイトルバーに表示
       BigPad.A1_SaveClick(Sender)   // 手続き〔上書き保存(S)〕を呼び出し、そのファイル名で保存
     end;
+end;
+
+procedure TBigPad.SpeedButton5Click(Sender: TObject);
+begin
+  Form2.Memo1.SelectAll;
+  Form2.Memo1.CopyToClipboard;
+  //Memo1.Clear;
+  Memo1.PasteFromClipboard;
+  Memo1.SetFocus;
 end;
 
 procedure TBigPad.SpeedButton6Click(Sender: TObject);
